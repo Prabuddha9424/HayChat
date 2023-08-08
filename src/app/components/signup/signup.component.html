@@ -1,0 +1,26 @@
+<form [formGroup]="signupForm" (ngSubmit)="signup()">
+  <div class="container">
+    <div class="row">
+      <div class="signup-outer">
+        <div class="signup-form col-sm-12 col-md-8 col-lg-4">
+          <label class="signup-label">Sign Up</label>
+          <mat-form-field class="form-field" appearance="fill">
+            <mat-label>User Name</mat-label>
+            <input type="text" matInput formControlName="userName" placeholder="Ex. John Due">
+          </mat-form-field>
+          <mat-form-field class="form-field" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+          </mat-form-field>
+          <mat-form-field class="form-field" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password">
+            <mat-icon matSuffix>visibility_off</mat-icon>
+          </mat-form-field>
+          <button type="submit" [disabled]="signupForm.invalid" class="signup-join-btn" mat-raised-button color="primary">Join Now</button>
+          <p class="signup-para">Already have an account? <a href="/login">Sign in</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

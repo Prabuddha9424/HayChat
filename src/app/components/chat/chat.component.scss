@@ -1,0 +1,246 @@
+.outer {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner {
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  box-shadow: 5px 5px 20px rgba(25, 42, 86, 0.6);
+}
+
+/*inner left div style*/
+.inner-left {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*inner right div style*/
+.inner-right {
+  height: 100%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*left header div style*/
+.inner-left-header {
+  height: 10%;
+  width: 100%;
+  border-top-left-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(25, 42, 86, 1.0) !important;
+}
+
+/*chat name label style*/
+.chat-name {
+  font-size: 20px;
+  font-weight: 600;
+  padding-left: 10px;
+  color: rgba(236, 240, 241, 0.9);
+  width: 30%;
+}
+
+/*logout button style*/
+.logout-btn {
+  scale: 70%;
+  background-color: #303F67 !important;
+  color: rgba(236, 240, 241, 0.8) !important;
+  width: 30%;
+}
+
+/*inner left container div style*/
+.inner-left-container {
+  height: 90%;
+  width: 100%;
+  border-bottom-left-radius: 15px;
+  background-color: rgba(25, 42, 86, 0.9);
+}
+
+/*inner left - user object dive style*/
+.user-object {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.user-object:hover {
+  cursor: pointer !important;
+}
+
+.user-object:focus {
+  background-color: rgba(25, 42, 86, 1.0);
+}
+
+/*inner left - user object image div style*/
+.user-object-img {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*inner left - user object data div style*/
+.user-object-data {
+  width: 80%;
+  height: 100%;
+  padding-left: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/*inner left - user search input style*/
+.user-find {
+  width: 100%;
+  height: 40px;
+  background-color: rgba(25, 42, 86, 0.8);
+  border: none !important;
+  color: white;
+  opacity: 0.5;
+}
+
+.user-find:focus {
+  outline: none;
+  opacity: 0.5;
+}
+
+.user-find::placeholder {
+  color: white !important;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+}
+
+/*inner right header div style*/
+.inner-right-header {
+  height: 10%;
+  width: 100%;
+  background-color: rgba(25, 42, 86, 1.0);
+  border-top-right-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*inner right header - other friend data div style*/
+.other-friend-data {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 30%;
+  height: 100%;
+  padding-left: 10px;
+}
+
+/*inner right header - chat tools div style*/
+.chat-tools {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  width: 30%;
+  height: 100%;
+}
+
+/*inner right chat area div style*/
+.inner-right-out {
+  height: 80%;
+  width: 100%;
+  background-color: rgba(25, 42, 86, 0.1);
+}
+
+/*inner right chat area-incoming message div style*/
+.incoming-msg {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+/*inner right chat area-incoming user image div style*/
+.incoming-img {
+  width: 10%;
+}
+
+/*inner right chat area-incoming message data div style*/
+.incoming-data {
+  max-width: 70%;
+  height: 100%;
+  border-radius: 0 10px 10px 10px;
+  background-color: white;
+  position: relative;
+}
+
+/*inner right chat area-outgoing message div style*/
+.outgoing-msg {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/*inner right chat area-outgoing message data div style*/
+.outgoing-data {
+  max-width: 70%;
+  height: 100%;
+  border-radius: 10px 0 10px 10px;
+  background-color: white;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/*inner right chat area-typing area div style*/
+.inner-right-in {
+  height: 10%;
+  width: 100%;
+  border-bottom-right-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.typing-area{
+  width: 90%;
+  height: 100%;
+}
+.msg-typing-area{
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+}
+.send-btn{
+  width: 15%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+

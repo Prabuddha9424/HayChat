@@ -1,0 +1,47 @@
+<form [formGroup]="loginForm" >
+  <div class="container">
+    <div class="row">
+      <div class="signin-outer ">
+        <div class="signin-inner col-sm-12 col-md-8 col-lg-6">
+          <div class="signin-form col-8">
+            <label class="signin-label">Sign In</label>
+            <mat-form-field class="form-field" appearance="fill">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="fill">
+              <mat-label>Password</mat-label>
+              <input type="password" matInput formControlName="password">
+              <mat-icon matSuffix>visibility_off</mat-icon>
+            </mat-form-field>
+            <button type="button" (click)="signIn" [disabled]="loginForm.invalid" class="signin-join-btn" mat-raised-button color="primary">Join Now</button>
+            <p class="signin-or">OR</p>
+            <button type="submit" (click)="router.navigateByUrl('/signup')" class="signin-join-btn signin-create-btn" mat-raised-button >Create an Account</button>
+          </div>
+
+          <div class="signin-inner-middle col-2">
+            <p class="signin-with">Sign In With</p>
+          </div>
+
+          <div class="signin-other col-2">
+
+            <button class="social-btn">
+              <img class="social-icon" src="https://img.icons8.com/color/48/facebook-new.png" alt="facebook-new"/>
+            </button>
+            <button class="social-btn">
+              <img class="social-icon" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>
+            </button>
+            <button class="social-btn">
+              <img class="social-icon" src="https://img.icons8.com/color/48/twitter-circled--v1.png" alt="twitter-circled--v1"/>
+            </button>
+            <button class="social-btn">
+              <img class="social-icon" src="https://img.icons8.com/fluency/48/github.png" alt="github"/>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</form>
