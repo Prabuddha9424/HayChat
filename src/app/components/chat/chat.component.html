@@ -16,34 +16,16 @@
               <input type="text" class="user-find" matInput placeholder="&nbsp;Find a user">
 
               <!--Inner left user data-->
-              <div class="user-object">
-                <div class="user-object-img">
-                  <img style="width: 48px; height: 48px; border-radius: 24px;" src="https://imgv3.fotor.com/images/gallery/Realistic-Male-Profile-Picture.jpg" alt="other-user-1">
-                </div>
-                <div class="user-object-data">
-                  <p style="font-size: 18px; font-weight: 400; margin-bottom: 0; margin-top: 10px; color: rgba(236, 240, 241,0.8)">Samurdhi</p>
-                  <p style="font-size: 12px; font-weight: 300; color: rgba(236, 240, 241,1.0)">last message</p>
-                </div>
+              <div *ngFor="let user of usersArr" class="user-object">
+                  <div class="user-object-img">
+                    <img style="width: 48px; height: 48px; border-radius: 24px;" src="https://imgv3.fotor.com/images/gallery/Realistic-Male-Profile-Picture.jpg" alt="other-user-1">
+                  </div>
+                  <div class="user-object-data" (click)="createChat(userId.textContent, selectedName.textContent)">
+                    <p #selectedName style="font-size: 18px; font-weight: 400; margin-bottom: 0; margin-top: 10px; color: rgba(236, 240, 241,0.8)">{{user.userName}}</p>
+                    <p style="font-size: 12px; font-weight: 300; color: rgba(236, 240, 241,1.0)">last message</p>
+                    <p #userId class="user-id">{{user.id}}</p>
+                  </div>
               </div>
-              <div class="user-object">
-                <div class="user-object-img">
-                  <img style="width: 48px; height: 48px; border-radius: 24px;" src="https://imgv3.fotor.com/images/gallery/Realistic-Male-Profile-Picture.jpg" alt="other-user-1">
-                </div>
-                <div class="user-object-data">
-                  <p style="font-size: 18px; font-weight: 400; margin-bottom: 0; margin-top: 10px; color: rgba(236, 240, 241,0.8)">Samurdhi</p>
-                  <p style="font-size: 12px; font-weight: 300; color: rgba(236, 240, 241,1.0)">last message</p>
-                </div>
-              </div>
-              <div class="user-object">
-                <div class="user-object-img">
-                  <img style="width: 48px; height: 48px; border-radius: 24px;" src="https://imgv3.fotor.com/images/gallery/Realistic-Male-Profile-Picture.jpg" alt="other-user-1">
-                </div>
-                <div class="user-object-data">
-                  <p style="font-size: 18px; font-weight: 400; margin-bottom: 0; margin-top: 10px; color: rgba(236, 240, 241,0.8)">Samurdhi</p>
-                  <p style="font-size: 12px; font-weight: 300; color: rgba(236, 240, 241,1.0)">last message</p>
-                </div>
-              </div>
-
 
             </div>
           </div>
@@ -54,7 +36,7 @@
             <div class="inner-right-header">
               <!--Inner right ( header friend name )-->
               <div class="other-friend-data">
-                <p style="font-size: 18px; font-weight: 400; color: rgba(236, 240, 241,0.8) ">other user name</p>
+                <p #selectedUserName style="font-size: 18px; font-weight: 400; color: rgba(236, 240, 241,0.8) " >{{setVal()}}</p>
               </div>
               <!--Inner right ( header chat tools )-->
               <div class="chat-tools">
@@ -70,21 +52,21 @@
             <!--Inner right chat display area-->
             <div class="inner-right-out">
               <!--Inner right incoming message-->
-              <div class="incoming-msg">
+              <div class="incoming-msg" *ngFor="let m of incomingMessages">
                 <div class="incoming-img user-object-img">
-                    <img style="width: 48px; height: 48px; border-radius: 24px;" src="https://imgv3.fotor.com/images/gallery/Realistic-Male-Profile-Picture.jpg" alt="other-user-1">
+                  <img style="width: 48px; height: 48px; border-radius: 24px;" src="https://imgv3.fotor.com/images/gallery/Realistic-Male-Profile-Picture.jpg" alt="other-user-1">
                 </div>
                 <div class="incoming-data">
-                  <p style="padding: 5px 5px 10px 5px; font-weight: 500">Hay.. How are you..?</p>
-                  <p style="bottom: 0; left: 0; margin: 0;padding-left: 5px; font-size: 8px; position: absolute">12.30pm</p>
+                  <p style="padding: 5px 5px 10px 5px; font-weight: 500">{{m.message}}</p>
+                  <p style="bottom: 0; left: 0; margin: 0;padding-left: 5px; font-size: 8px; position: absolute">{{m.date}}</p>
                 </div>
               </div>
 
               <!--Inner right outgoing message-->
-              <div class="outgoing-msg">
+              <div class="outgoing-msg" *ngFor="let m of outgoingMessages">
                 <div class="outgoing-data">
-                  <p style="padding: 5px 5px 10px 5px; font-weight: 500">Hay.. How are you..?</p>
-                  <p style="bottom: 0; right: 0; margin: 0;padding-right: 5px; font-size: 8px; position: absolute">12.30pm</p>
+                  <p style="padding: 5px 5px 10px 5px; font-weight: 500">{{m.message}}</p>
+                  <p style="bottom: 0; right: 0; margin: 0;padding-right: 5px; font-size: 8px; position: absolute">{{m.date}}</p>
                 </div>
                 <div class="incoming-img user-object-img">
                   <img style="width: 48px; height: 48px; border-radius: 24px;" src="https://imgv3.fotor.com/images/gallery/Realistic-Male-Profile-Picture.jpg" alt="other-user-1">
@@ -93,11 +75,11 @@
             </div>
 
             <!--Inner right chat typing area-->
-            <div class="inner-right-in">
+            <div class="inner-right-in" >
               <div class="typing-area">
-                <textarea class="msg-typing-area" placeholder="Type a message"></textarea>
+                <textarea #msg formControlName="textarea" class="msg-typing-area" placeholder="Type a message"></textarea>
               </div>
-              <div class="send-btn">
+              <div class="send-btn" (click)="sendMessage(msg.value)">
                 <button mat-fab style="background-color: rgba(25, 42, 86, 0.9)" >
                   <mat-icon>send</mat-icon>
                 </button>

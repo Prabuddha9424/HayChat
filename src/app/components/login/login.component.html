@@ -14,7 +14,7 @@
               <input type="password" matInput formControlName="password">
               <mat-icon matSuffix>visibility_off</mat-icon>
             </mat-form-field>
-            <button type="button" (click)="signIn" [disabled]="loginForm.invalid" class="signin-join-btn" mat-raised-button color="primary">Join Now</button>
+            <button type="button" (click)="signinWithEmail()" [disabled]="loginForm.invalid" class="signin-join-btn" mat-raised-button color="primary">Sign In</button>
             <p class="signin-or">OR</p>
             <button type="submit" (click)="router.navigateByUrl('/signup')" class="signin-join-btn signin-create-btn" mat-raised-button >Create an Account</button>
           </div>
@@ -25,16 +25,16 @@
 
           <div class="signin-other col-2">
 
-            <button class="social-btn">
+            <button (click)="signInWithFacebook()" class="social-btn">
               <img class="social-icon" src="https://img.icons8.com/color/48/facebook-new.png" alt="facebook-new"/>
             </button>
-            <button class="social-btn">
+            <button (click)="signInWithGoogle()" class="social-btn">
               <img class="social-icon" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>
             </button>
-            <button class="social-btn">
+            <button (click)="signInWithTwitter()" class="social-btn">
               <img class="social-icon" src="https://img.icons8.com/color/48/twitter-circled--v1.png" alt="twitter-circled--v1"/>
             </button>
-            <button class="social-btn">
+            <button (click)="signInWithGithub()" class="social-btn">
               <img class="social-icon" src="https://img.icons8.com/fluency/48/github.png" alt="github"/>
             </button>
           </div>

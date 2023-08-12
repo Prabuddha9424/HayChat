@@ -1,12 +1,13 @@
 export const environment = {
   production:false,
   firebaseConfig: {
-    apiKey: "AIzaSyA_qF7kPYwicW97LjOrcHmmN_-9nskWbMw",
-    authDomain: "social-app-7f09c.firebaseapp.com",
-    projectId: "social-app-7f09c",
-    storageBucket: "social-app-7f09c.appspot.com",
-    messagingSenderId: "240646611055",
-    appId: "1:240646611055:web:6218ece0270624ae246d9a",
-    measurementId: "G-KBC0WHME0G"
+    apiKey: "AIzaSyAk83-vmQpFs_LWSFKbiHATqfcW8kDnpP0",
+    authDomain: "haychat-27449.firebaseapp.com",
+    databaseURL: "https://haychat-27449-default-rtdb.firebaseio.com",
+    projectId: "haychat-27449",
+    storageBucket: "haychat-27449.appspot.com",
+    messagingSenderId: "1085030396578",
+    appId: "1:1085030396578:web:bd33bc276c3647469f9dfb",
+    measurementId: "G-Q8GXVTEWM6"
   }
 };
