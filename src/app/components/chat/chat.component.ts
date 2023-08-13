@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ChatService} from "../../services/chat.service";
 import {error} from "@angular/compiler-cli/src/transformers/util";
+import {AuthService} from "../../services/auth.service";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-chat',
@@ -9,7 +11,7 @@ import {error} from "@angular/compiler-cli/src/transformers/util";
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit{
-  constructor(private service:ChatService) {
+  constructor(private service:ChatService, private authService:AuthService, private title:Title) {
   }
   chatForm=new FormGroup({
     textarea: new FormControl()
@@ -19,6 +21,7 @@ export class ChatComponent implements OnInit{
   incomingMessages:any;
   name = '';
   ngOnInit() {
+    this.title.setTitle('HayChat | Chat');
     this.service.getAllUsers()
       .subscribe(response => {
         response.forEach((user: any) => {
