@@ -17,6 +17,9 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatButtonModule} from "@angular/material/button";
 import {CookieService} from "ngx-cookie-service";
+import {AngularFireStorage, AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import {CookieService} from "ngx-cookie-service";
     BrowserAnimationsModule,
     MatIconModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    AngularFireStorageModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

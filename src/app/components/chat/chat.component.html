@@ -9,23 +9,28 @@
             <div class="inner-left-header">
               <label class="chat-name">HayChat</label>
 
-              <button mat-raised-button class="logout-btn" >Logout</button>
+              <button mat-raised-button class="logout-btn" (click)="logout()" >Logout</button>
             </div>
             <!--Inner left container( search aria and users data-->
-            <div class="inner-left-container">
+            <div class="inner-left-container" >
               <input type="text" class="user-find" matInput placeholder="&nbsp;Find a user">
-
-              <!--Inner left user data-->
-              <div *ngFor="let user of usersArr" class="user-object">
+              <div class="user-object-outer" *ngIf="dataLoaded">
+                <div *ngFor="let user of usersArr" class="user-object">
                   <div class="user-object-img">
-                    <img style="width: 48px; height: 48px; border-radius: 24px;" src="https://imgv3.fotor.com/images/gallery/Realistic-Male-Profile-Picture.jpg" alt="other-user-1">
+                    <img style="width: 48px; height: 48px; border-radius: 24px;" src="{{user.profileUrl}}" alt="other-user-1">
                   </div>
                   <div class="user-object-data" (click)="createChat(userId.textContent, selectedName.textContent)">
                     <p #selectedName style="font-size: 18px; font-weight: 400; margin-bottom: 0; margin-top: 10px; color: rgba(236, 240, 241,0.8)">{{user.userName}}</p>
                     <p style="font-size: 12px; font-weight: 300; color: rgba(236, 240, 241,1.0)">last message</p>
                     <p #userId class="user-id">{{user.id}}</p>
                   </div>
+                </div>
               </div>
+              <div class="spinner" *ngIf="!dataLoaded">
+                <mat-spinner [diameter]="50"></mat-spinner>
+              </div>
+              <!--Inner left user data-->
+
 
             </div>
           </div>
@@ -50,28 +55,37 @@
             </div>
 
             <!--Inner right chat display area-->
-            <div class="inner-right-out">
-              <!--Inner right incoming message-->
-              <div class="incoming-msg" *ngFor="let m of incomingMessages">
-                <div class="incoming-img user-object-img">
-                  <img style="width: 48px; height: 48px; border-radius: 24px;" src="https://imgv3.fotor.com/images/gallery/Realistic-Male-Profile-Picture.jpg" alt="other-user-1">
+            <div class="inner-right-out" #scroll>
+
+              <div *ngIf="chatLoaded" class="msg-outer">
+
+                <!--Inner right incoming message-->
+                <div class="incoming-msg" *ngFor="let m of incomingMessages">
+                  <div class="incoming-img user-object-img">
+                    <img style="width: 48px; height: 48px; border-radius: 24px;" src="{{selectedUserImage}}" alt="other-user-1">
+                  </div>
+                  <div class="incoming-data">
+                    <p style="padding: 5px 5px 10px 5px; font-weight: 500">{{m.message}}</p>
+                    <p style="bottom: 0; left: 0; margin: 0;padding-left: 5px; font-size: 8px; position: absolute">{{m.date}}</p>
+                  </div>
                 </div>
-                <div class="incoming-data">
-                  <p style="padding: 5px 5px 10px 5px; font-weight: 500">{{m.message}}</p>
-                  <p style="bottom: 0; left: 0; margin: 0;padding-left: 5px; font-size: 8px; position: absolute">{{m.date}}</p>
+
+                <!--Inner right outgoing message-->
+                <div class="outgoing-msg" *ngFor="let m of outgoingMessages">
+                  <div class="outgoing-data">
+                    <p style="padding: 5px 5px 10px 5px; font-weight: 500">{{m.message}}</p>
+                    <p style="bottom: 0; right: 0; margin: 0;padding-right: 5px; font-size: 8px; position: absolute">{{m.date}}</p>
+                  </div>
+                  <div class="incoming-img user-object-img">
+                    <img style="width: 48px; height: 48px; border-radius: 24px;" src="{{currentUserImage}}" alt="other-user-1">
+                  </div>
                 </div>
+
               </div>
 
-              <!--Inner right outgoing message-->
-              <div class="outgoing-msg" *ngFor="let m of outgoingMessages">
-                <div class="outgoing-data">
-                  <p style="padding: 5px 5px 10px 5px; font-weight: 500">{{m.message}}</p>
-                  <p style="bottom: 0; right: 0; margin: 0;padding-right: 5px; font-size: 8px; position: absolute">{{m.date}}</p>
-                </div>
-                <div class="incoming-img user-object-img">
-                  <img style="width: 48px; height: 48px; border-radius: 24px;" src="https://imgv3.fotor.com/images/gallery/Realistic-Male-Profile-Picture.jpg" alt="other-user-1">
-                </div>
-              </div>
+              <mat-progress-bar *ngIf="!chatLoaded && userClick" mode="indeterminate"></mat-progress-bar>
+
+
             </div>
 
             <!--Inner right chat typing area-->

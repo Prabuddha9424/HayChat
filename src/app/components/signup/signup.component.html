@@ -17,6 +17,15 @@
             <input type="password" matInput formControlName="password">
             <mat-icon matSuffix>visibility_off</mat-icon>
           </mat-form-field>
+
+          <div class="image-upload">
+            <div class="image-upload-outer" >
+              <input (change)="select($event)" type="file" id="image" accept="image/*" class="profile-img" style="display: none">
+              <label for="image" class="custom-file-label"><img width="55" height="55" src="https://img.icons8.com/sf-regular/48/000000/add-image.png" alt="add-image"/></label>
+            </div>
+            <p style="font-weight: 500; padding-left: 10px; font-size: 15px; color: rgba(0.88, 0.88, 0.88, 0.5)">Add an Avatar</p>
+          </div>
+
           <button type="submit" [disabled]="signupForm.invalid" class="signup-join-btn" mat-raised-button color="primary">Join Now</button>
           <p class="signup-para">Already have an account? <a href="/login">Sign in</a>.</p>
         </div>
